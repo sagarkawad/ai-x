@@ -22,16 +22,16 @@ export default function Home() {
   }
 
   useEffect(() => {
-    async function addAndFetchTweets() {
-      await addTweets();
+    function addAndFetchTweets() {
       fetchTweets();
+      addTweets();
     }
 
     //add and fetch
     addAndFetchTweets();
     
     // Fetch new tweets every 30 seconds
-    const interval = setInterval(fetchTweets, 10000);
+    const interval = setInterval(addAndFetchTweets, 10000);
     return () => clearInterval(interval);
   }, []);
 

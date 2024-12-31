@@ -42,7 +42,6 @@ export async function GET() {
   try {
     const tweet = await generateTweet();
     const user = await generateUser();
-    
     const client = await clientPromise;
     const db = client.db('twitter-clone');
     
